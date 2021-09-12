@@ -8,3 +8,11 @@ header {
   background-color: #00d7e6;
   background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-dark.png");
 }
+
+main.container {
+  width: 90%;
+  display: flex;
+  background-color: #f4f1ec;
+  align-self: center;
+  align-items: center;
+}
