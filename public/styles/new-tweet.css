@@ -9,6 +9,8 @@ textarea {
   background-color: #f4f1ec;
   border-bottom: 4px solid black;
   resize: none;
+  display: flex;
+  outline: none;
 }
 
 output[class] {
