@@ -4,13 +4,15 @@ $(document).ready(function () {
       .siblings()
       .children()
       .last()
-      .text(140 - this.value.length);
-    const textLength = this.value.length;
+      .text(140 - $(this).val().length);
+    const textLength = $(this).val().length;
     const sum = 140 - textLength;
     if (sum < 0) {
-      $(".counter").css({ color: "red" });
+      // $(".counter").css({ color: "red" });
+      $(".counter").addClass("negativeCounter");
     } else {
-      $(".counter").css({ color: "#545149" });
+      $(".counter").removeClass("negativeCounter");
     }
   });
+  $(".timePosted").text(timeago.format(new Date()));
 });

@@ -1,0 +1,36 @@
+main.container {
+  flex-direction: column;
+}
+
+section#tweet-container {
+  border: 4px solid black;
+  margin-block-start: 2em;
+  margin-block-end: 2em;
+}
+
+section#tweet-container article {
+  display: flex;
+  flex-direction: column;
+}
+
+article footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+article footer i:hover {
+  color: orange;
+}
+
+article:hover {
+  box-shadow: 10px 5px 5px grey;
+}
+
+footer div {
+  align-items: center;
+}
+
+article header {
+  display: flex;
+  justify-content: space-between;
+}
