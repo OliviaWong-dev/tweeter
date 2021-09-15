@@ -6,6 +6,7 @@ section#tweet-container {
   border: 4px solid black;
   margin-block-start: 2em;
   margin-block-end: 2em;
+  padding: 0.8em;
 }
 
 section#tweet-container article {
@@ -27,10 +28,24 @@ article:hover {
 }
 
 footer div {
-  align-items: center;
+  align-items: flex-end;
 }
 
 article header {
   display: flex;
   justify-content: space-between;
+}
+
+article img {
+  margin-right: 1em;
+}
+
+article {
+  border: 4px solid black;
+  padding: 0.8em;
+  margin-bottom: 2em;
+}
+
+footer p {
+  margin-block-end: 0;
 }
