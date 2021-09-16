@@ -61,4 +61,13 @@ $(document).ready(function () {
   };
 
   renderTweets(tweetData);
+
+  $("#tweet-form").submit(function (event) {
+    event.preventDefault();
+    console.log($("#tweet-form").serialize());
+    $.post("/tweets", $("#tweet-form").serialize(), function (data, status) {
+      console.log(data, status);
+      // $("article p").append(data);
+    });
+  });
 });
