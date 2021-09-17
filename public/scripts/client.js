@@ -4,35 +4,11 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 $(document).ready(function () {
-  const tweetData = [
-    {
-      user: {
-        name: "Newton",
-        avatars: "https://i.imgur.com/73hZDYK.png",
-        handle: "@SirIsaac",
-      },
-      content: {
-        text: "If I have seen further it is by standing on the shoulders of giants",
-      },
-      created_at: 1461116232227,
-    },
-    {
-      user: {
-        name: "Descartes",
-        avatars: "https://i.imgur.com/nlhLi3I.png",
-        handle: "@rd",
-      },
-      content: {
-        text: "Je pense , donc je suis",
-      },
-      created_at: 1461113959088,
-    },
-  ];
-
   const renderTweets = function (tweets) {
     for (const tweet of tweets) {
       const $tweet = createTweetElement(tweet);
       $("#tweet-container").append($tweet);
+      // console.log($tweet);
     }
   };
 
@@ -46,7 +22,7 @@ $(document).ready(function () {
     </div>
     <p class="handle">${tweet.user.handle}</p>
   </header>
-  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut repudiandae numquam suscipit obcaecati quo, deleniti, nesciunt non dignissimos maiores dolorum eos debitis dolorem? Beatae, vitae velit deleniti adipisci architecto omnis!</p>
+  <p>${tweet.content.text}</p>
   <footer>
     <p class="timePosted"></p>
     <div>
@@ -59,15 +35,22 @@ $(document).ready(function () {
 `;
     return userArticle;
   };
+  let tweets = [];
 
-  renderTweets(tweetData);
+  const loadTweet = function () {
+    $.get("/tweets", function (data, status) {
+      tweets = data;
+      renderTweets(tweets);
+    });
+  };
+
+  loadTweet();
 
   $("#tweet-form").submit(function (event) {
     event.preventDefault();
-    console.log($("#tweet-form").serialize());
     $.post("/tweets", $("#tweet-form").serialize(), function (data, status) {
-      console.log(data, status);
-      // $("article p").append(data);
+      tweets.push(data);
+      renderTweets(tweets);
     });
   });
 });
