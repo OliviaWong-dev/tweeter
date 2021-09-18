@@ -56,15 +56,25 @@ $(document).ready(function() {
     event.preventDefault();
     var tweetTextLength = $("#tweet-text").val().length;
     if (tweetTextLength > 140) {
-      return alert("Cannot exceed the 140 character limit!");
+      return $("h3")
+        .slideDown()
+        .css("visibility", "visible")
+        .text("Exceeded limit of 140 words!");
     }
     if (tweetTextLength === 0) {
-      return alert("Cannot be empty!");
+      return $("h3")
+        .slideDown("slow")
+        .css("visibility", "visible")
+        .text("Cannot be empty!");
     }
-    $.post("/tweets", $("#tweet-form").serialize(), function(data, status) {
-      tweets.push(data);
-      // renderTweets(tweets);
-      loadTweet();
-    });
+    if (tweetTextLength < 140 && tweetTextLength !== 0) {
+      $("h3").slideUp("slow");
+      // .css("visibility", "hidden");
+      $.post("/tweets", $("#tweet-form").serialize(), function(data, status) {
+        $("h3").css("visibility", "hidden");
+        tweets.push(data);
+        loadTweet();
+      });
+    }
   });
 });

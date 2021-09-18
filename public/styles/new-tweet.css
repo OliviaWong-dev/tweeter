@@ -35,6 +35,14 @@ main div {
   justify-content: space-between;
 }
 
-negativeCounter {
+.negativeCounter {
   color: red;
+}
+
+h3 {
+  border: 3px solid red;
+  color: red;
+  padding: 0.5em;
+  font-size: 22px;
+  visibility: hidden;
 }
