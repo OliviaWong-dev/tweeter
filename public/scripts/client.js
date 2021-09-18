@@ -11,6 +11,12 @@ $(document).ready(function() {
     }
   };
 
+  const escape = function(str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
+
   const createTweetElement = function(tweet) {
     const userArticle = `
     <article>
@@ -21,7 +27,7 @@ $(document).ready(function() {
     </div>
     <p class="handle">${tweet.user.handle}</p>
   </header>
-  <p>${tweet.content.text}</p>
+  <p>${escape(tweet.content.text)}</p>
   <footer>
     <p class="timePosted" >${timeago.format(tweet.created_at)}</p>
     <div>
@@ -56,11 +62,9 @@ $(document).ready(function() {
       return alert("Cannot be empty!");
     }
     $.post("/tweets", $("#tweet-form").serialize(), function(data, status) {
-      console.log(tweetTextLength);
       tweets.push(data);
-      renderTweets(tweets);
-    }).catch(function(error) {
-      console.log("this is funny");
+      // renderTweets(tweets);
+      loadTweet();
     });
   });
 });
