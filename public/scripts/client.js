@@ -21,7 +21,7 @@ $(document).ready(function() {
     const userArticle = `
     <article>
   <header>
-    <div class="profile">
+    <div class="profile-img">
       <img src="${tweet.user.avatars}">
       <p>${tweet.user.name}</p>
     </div>
@@ -69,7 +69,6 @@ $(document).ready(function() {
     }
     if (tweetTextLength < 140 && tweetTextLength !== 0) {
       $("h3").slideUp("slow");
-      // .css("visibility", "hidden");
       $.post("/tweets", $("#tweet-form").serialize(), function(data, status) {
         $("h3").css("visibility", "hidden");
         tweets.push(data);

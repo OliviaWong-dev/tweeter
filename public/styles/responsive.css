@@ -1,0 +1,24 @@
+/* .profile {
+  display: flex;
+
+} */
+
+@media only screen and (min-width: 1024px) { 
+  .profile {
+    display: flex;
+    margin-right: 1em;
+    margin-left: 1em;
+  }
+
+  div.profile.profile > header {
+    width: 60%;
+    margin: 4em 5em 0em 1em;
+  }
+
+  .profile img {
+    margin-left: 0em;
+  }
+
+
+
+ }  
