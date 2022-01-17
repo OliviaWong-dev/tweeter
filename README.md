@@ -14,11 +14,6 @@ https://user-images.githubusercontent.com/82677285/149848187-9c8217bf-a83f-4e94-
 https://user-images.githubusercontent.com/82677285/149848210-fdc20029-e733-4146-a081-5104f3279090.mov
 
 
-
-!["Screenshot of tweet compose box"](https://github.com/owong83/tweeter/blob/master/doc/tweet.png?raw=true)
-!["Screenshot of warning message"](https://github.com/owong83/tweeter/blob/master/doc/warning.png?raw=true)
-
-
 ## Getting Started
 
 1. Fork this repository, then clone your fork of this repository.
